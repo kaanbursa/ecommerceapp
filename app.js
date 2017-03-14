@@ -1,7 +1,15 @@
 const express = require('express');
 
+//Database module
+const ecomdb = require( __dirname + '/models/database')
+
+//Initiate app with express
+const app = express()
+
 app.use(express.static('public'))
 
+//Set views file and view engine
+app.set('views', __dirname + '/views')
 app.set('view engine', 'pug')
 
 
