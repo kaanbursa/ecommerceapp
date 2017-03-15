@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const pug = require('pug');
+const session = require('express-session')
 
 
 const users = require( __dirname + '/routes/users')
@@ -10,10 +11,8 @@ const ecomdb = require( __dirname + '/models/database')
 //Initiate app with express
 const app = express()
 
-
-
+//Serve static files (CSS)
 app.use(express.static('static'))
-
 
 //Set views file and view engine
 app.set('views', __dirname + '/views')
@@ -31,10 +30,8 @@ app.use(session({
 	}
 }))
 
-
+//Router
 app.use('/', users)
-
-
 
 
 app.listen(3000, f => {
