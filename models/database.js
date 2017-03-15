@@ -3,8 +3,9 @@ const sequelize = require('sequelize')
 let ecomdb = new sequelize( 
 	'ecomdb', 
 	process.env.POSTGRES_USER,
-	process.env.POSTGRES_PASSWORD,{
-            dialect: 'postgres'
+	process.env.POSTGRES_PASSWORD,
+	{
+    dialect: 'postgres'
 });
 
 //The users table model.
