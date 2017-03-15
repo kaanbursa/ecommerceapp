@@ -1,13 +1,17 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const pug = require('pug');
 
+const users = require( __dirname + '/routes/users')
 //Database module
 const ecomdb = require( __dirname + '/models/database')
 
 //Initiate app with express
 const app = express()
 
-//Notice: we don't have a public file.
-app.use(express.static('public'))
+
+app.use(express.static('static'))
+
 
 //Set views file and view engine
 app.set('views', __dirname + '/views')
@@ -25,10 +29,9 @@ app.use(session({
 	}
 }))
 
-//Root page
-app.get('/', (req, res) => {
-	res.send('Hello World')
-})
+
+app.use('/', users)
+
 
 //////////////////////////////////////////////////////////
 ////////login code////////////////////////////////////////

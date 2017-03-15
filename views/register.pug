@@ -1,0 +1,9 @@
+extends ./application.pug
+block content
+	div(class="signupMenu")
+		h1(id="registerHead" class="myHeader") Sign Up
+		form(action="/register" method="post")
+			input(class="mdl-textfield__input menuInput" placeholder="username", name="username")
+			input(class="mdl-textfield__input menuInput" placeholder="email", name="email")
+			input(class="mdl-textfield__input menuInput" placeholder="password", name="password", type="password")
+			input(type="submit", value="Sign Up", class="menuButton")
