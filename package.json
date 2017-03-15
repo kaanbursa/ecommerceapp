@@ -19,6 +19,7 @@
   "dependencies": {
     "express": "^4.15.2",
     "pg": "^6.1.4",
+    "passport": "^0.3.2",
     "pug": "^2.0.0-beta11",
     "sequelize": "^3.30.2"
   }
