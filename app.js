@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const pug = require('pug');
-
+const session = require('express-session')
 
 const users = require( __dirname + '/routes/users')
 //Database module
