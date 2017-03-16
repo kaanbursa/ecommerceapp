@@ -17,8 +17,14 @@
   },
   "homepage": "https://github.com/kaanbursa/ecommerceapp#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.17.1",
     "express": "^4.15.2",
+    "express-session": "^1.15.1",
+    "passport": "^0.3.2",
+    "pg": "^6.1.4",
     "pug": "^2.0.0-beta11",
+    "sendgrid": "^4.8.2",
     "sequelize": "^3.30.2"
   }
 }
