@@ -43,8 +43,7 @@ router.post('/login', function(req,res){
 			}
 
 		})
-		//This is what happends if the username is found but
-		//not the password.
+
 	//If no username is found it will return nul and crash the app
 	//this catch will conpensate for that and reload the login page.
 	.catch( function(error) {
