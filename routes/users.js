@@ -38,15 +38,14 @@ router.post('/login', function(req,res){
 					username: req.session.activeUser
 				}) 
 			}
-
-		});
-		//This is what happends if the username is found but
-		//not the password.
-		else { 
-			res.render('login', {
-				loginfail: 'Password is not correct.' 
-			}) 
-		}
+			//This is what happends if the username is found but
+			//not the password.
+			else { 
+				res.render('login', {
+					loginfail: 'Password is not correct.' 
+				}) 
+			}	
+		})
 	})
 	//If no username is found it will return nul and crash the app
 	//this catch will conpensate for that and reload the login page.
