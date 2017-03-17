@@ -29,7 +29,7 @@ router.post('/login', function(req,res){
 			username: lwrCase
 		}
 	}).then( user => {
-		console.log(user)
+		// if it does not find the user it will show the err
 		if(user != null){
 			bcrypt.compare(req.body.password, user.password, function(err, res) {
 
@@ -37,12 +37,11 @@ router.post('/login', function(req,res){
 
 					//Pass form username into req.session.activeUser
 					req.session.user = user.username
-
 					//This will then render the home page after 
 					//the username and the password are confirmed. 
 					res.redirect('profile') 
 				} else {
-					return false
+					throw err
 				}
 
 			})
@@ -59,8 +58,16 @@ router.post('/login', function(req,res){
 				loginfail: 'Username or password not found.' 
 		}) 
 	})
+
 	
 });
+
+router.get('/profile', function(req,res){
+	res.render('profile')
+})
+
+
+
 
 ////////////////////////REGISTER////////////////////////
 //The findOrCreate method will check if certain table elements

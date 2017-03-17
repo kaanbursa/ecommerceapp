@@ -11,12 +11,26 @@ const ecomdb = require( __dirname + '/models/database')
 
 app.use(bodyParser.urlencoded({ extended: false}))
 
+app.use(bodyParser.urlencoded({ extended: false }))
+
+
+
 //Serve static files (CSS)
-app.use(express.static('static'))
+app.use(express.static('public'))
+// app.use('/public', express.static( __dirname + '/public') )
+
 
 //Set views file and view engine
 app.set('views', __dirname + '/views')
 app.set('view engine', 'pug')
+
+app.get('/index', (req, res)=>{
+res.render('index')
+})
+app.get('/single', (req, res)=>{
+res.render('single')
+})
+
 
 //Start session.
 app.use(session({
