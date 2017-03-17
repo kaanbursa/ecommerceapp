@@ -4,8 +4,11 @@ const bodyParser = require('body-parser');
 const pug = require('pug');
 const session = require('express-session')
 
-
+//user router
 const users = require( __dirname + '/routes/users')
+//courses router
+const courses = require( __dirname + '/routes/courses')
+
 //Database module
 const ecomdb = require( __dirname + '/models/database')
 
@@ -35,8 +38,10 @@ app.use(session({
 	}
 }))
 
-//Router
+//Router users
 app.use('/', users)
+//Router courses
+app.use('/courses', courses)
 
 
 app.listen(3000, f => {
