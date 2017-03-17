@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const pug = require('pug')
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
-const passport = require('passport')
+//const passport = require('passport')
 
 //Router module
 const users = require( __dirname + '/routes/users')
@@ -43,8 +43,8 @@ app.use('/', users)
 app.use(cookieParser())
 
 //extra app configurations for passportjs
-app.use(passport.initialize())
-app.use(passport.session())
+// app.use(passport.initialize())
+// app.use(passport.session())
 
 
 

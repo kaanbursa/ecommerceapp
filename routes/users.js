@@ -5,8 +5,8 @@ const bcrypt = require('bcryptjs');
 const bodyparser = require('body-parser')
 const cookieParser = require('cookie-parser')
 
-const passport = require('passport')
-const LocalStrategy = require('passport-local').Strategy
+// const passport = require('passport')
+// const LocalStrategy = require('passport-local').Strategy
 
 
 router.get('/', (req, res) => {
@@ -28,73 +28,71 @@ router.get('/register', (req, res) => {
 //First set up the strategy you wish to use.
 //The local strategy is the standard way and checks
 //username and password.
-passport.use(new LocalStrategy(
-	function(username, password, done) {
-	  	ecomdb.User.findOne({ username: req.body.username }, function (err, user) {
-	      if (err) { return done(err); }
-	      if (!user) {
-	        return done(null, false, { message: 'Incorrect username.' });
-	      }
-	      if (!user.validPassword(password)) {
-	        return done(null, false, { message: 'Incorrect password.' });
-	      }
-	      return done(null, user);
-	    })
-  	}
-))
-//failureflash option set to true displays the failure messages. 
-router.post('/userlogin', function(req,res){
-	 passport.authenticate('local', { successRedirect: '/',
-                                   failureRedirect: '/login',
-                                   failureFlash: true })
-})
-
-
-
+// passport.use(new LocalStrategy(
+// 	function(username, password, done) {
+// 	  	ecomdb.User.findOne({ username: req.body.username }, function (err, user) {
+// 	      if (err) { return done(err); }
+// 	      if (!user) {
+// 	        return done(null, false, { message: 'Incorrect username.' });
+// 	      }
+// 	      if (!user.validPassword(password)) {
+// 	        return done(null, false, { message: 'Incorrect password.' });
+// 	      }
+// 	      return done(null, user);
+// 	    })
+//   	}
+// ))
+// //failureflash option set to true displays the failure messages. 
+// router.post('/userlogin', function(req,res){
+// 	 passport.authenticate('local', { successRedirect: '/',
+//                                    failureRedirect: '/login',
+//                                    failureFlash: true })
+// })
 
 
 
 //This login works with sessions. I don't know if it will
 //conflict with passportjs. This is what I used on my blog (Jose).
-// router.post('/login', function(req,res){
+router.post('/login', function(req,res){
 
-// 	ecomdb.User.findOne( {
-// 		where: {
-// 			username: req.body.username
-// 		}
-// 	}).then( function(user) {
+	ecomdb.User.findOne( {
+		where: {
+			username: req.body.username
+		}
+	}).then( function(user) {
 
-// 		bcrypt.compare(req.body.password, user.password, function(err, res) {
+		//this should be in a if else for it to work. look at kaan's code.
+		bcrypt.compare(req.body.password, user.password, function(err, res) {
 
-// 			if ( req.body.password == user.password ) { 
+			if ( req.body.password == user.password ) { 
 
-// 				//Pass form username into req.session.activeUser
-// 				req.session.activeUser = req.body.username
+				//Pass form username into req.session.activeUser
+				req.session.activeUser = req.body.username
 
-// 				//This will then render the home page after 
-// 				//the username and the password are confirmed. 
-// 				res.render('home', {
-// 					username: req.session.activeUser
-// 				}) 
-// 			}
-// 			//This is what happends if the username is found but
-// 			//not the password.
-// 			else { 
-// 				res.render('login', {
-// 					loginfail: 'Password is not correct.' 
-// 				}) 
-// 			}	
-// 		})
-// 	})
-// 	//If no username is found it will return nul and crash the app
-// 	//this catch will conpensate for that and reload the login page.
-// 	.catch( function(error) {
-// 		console.log(error)
-// 		return res.render('login', {
-// 				loginfail: 'Username or password not found.' 
-// 		}) 
-// 	})
-// })
+				//This will then render the home page after 
+				//the username and the password are confirmed. 
+				res.redirect('index', {
+					username: req.session.activeUser
+				}) 
+			}
+			//This is what happends if the username is found but
+			//not the password.
+			else { 
+				res.redirect('login', {
+					loginfail: 'Password is not correct.' 
+				}) 
+			}	
+		})
+	})
+	//If no username is found it will return nul and crash the app
+	//this catch will conpensate for that and reload the login page.
+	.catch( function(error) {
+		console.log(error)
+		return res.render('login', {
+				loginfail: 'Username or password not found.' 
+		}) 
+	})
+})
 
 
 
@@ -152,4 +150,4 @@ router.post('/register', function (req,res) {
 
 
 
-module.exports = router;
+module.exports = router
