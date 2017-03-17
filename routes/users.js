@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../models/database');
+const ecomdb = require('../models/database');
 const bcrypt = require('bcryptjs');
 
 
@@ -34,7 +34,7 @@ router.post('/login', function(req,res){
 
 				//This will then render the home page after 
 				//the username and the password are confirmed. 
-				res.render('home', {
+				res.redirect('profile', {
 					username: req.session.activeUser
 				}) 
 			}
@@ -55,6 +55,9 @@ router.post('/login', function(req,res){
 				loginfail: 'Username or password not found.' 
 		}) 
 	})
+})
+router.get('/profile', function(req,res){
+	res.render('profile')
 })
 
 ////////////////////////REGISTER////////////////////////

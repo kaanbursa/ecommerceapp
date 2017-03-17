@@ -72,4 +72,4 @@ ecomdb.sync({force: true}).then( done => {
 	])
 })
 
-module.exports = ecomdb        
+module.exports = ecomdb;        
