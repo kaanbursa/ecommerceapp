@@ -9,6 +9,7 @@ const users = require( __dirname + '/routes/users')
 //Database module
 const ecomdb = require( __dirname + '/models/database')
 
+app.use(bodyParser.urlencoded({ extended: false}))
 
 //Serve static files (CSS)
 app.use(express.static('static'))
