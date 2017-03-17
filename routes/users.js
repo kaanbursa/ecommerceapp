@@ -22,27 +22,33 @@ router.get('/register', (req, res) => {
 //conflict with passportjs.
 router.post('/login', function(req,res){
 
+	var lwrCase = req.body.username.toLowerCase();
+
 	ecomdb.User.findOne( {
 		where: {
-			username: req.body.username
+			username: lwrCase
 		}
-	}).then( function(user) {
+	}).then( user => {
+		// if it does not find the user it will show the err
+		if(user != null){
+			bcrypt.compare(req.body.password, user.password, function(err, res) {
 
-		bcrypt.compare(req.body.password, user.password, function(err, res) {
+				if ( lwrCase == user.password ) { 
 
-			if ( req.body.password == user.password ) { 
+					//Pass form username into req.session.activeUser
+					req.session.user = user.username
+					//This will then render the home page after 
+					//the username and the password are confirmed. 
+					res.redirect('profile') 
+				} else {
+					throw err
+				}
 
-				//Pass form username into req.session.activeUser
-				req.session.activeUser = req.body.username
-
-				//This will then render the home page after 
-				//the username and the password are confirmed. 
-				res.redirect('profile', {
-					username: req.session.activeUser
-				}) 
-			}
-
-		})
+			})
+	} else {
+		res.send('something went wrong')
+	}
+	})
 
 	//If no username is found it will return nul and crash the app
 	//this catch will conpensate for that and reload the login page.
@@ -53,11 +59,14 @@ router.post('/login', function(req,res){
 		}) 
 	})
 
-})
+	
+});
+
 router.get('/profile', function(req,res){
 	res.render('profile')
 })
-	})
+
+
 
 
 ////////////////////////REGISTER////////////////////////
@@ -90,19 +99,50 @@ router.post('/register', function (req,res) {
 					lastname: req.body.lastname,
 					adress: req.body.adress
 				}
-			}).then( function(register) {
+			}).then( user => {
 
 				var request = sg.emptyRequest({
   					method: 'POST',
 					  path: '/v3/mail/send',
 					  body: mail.toJSON()
 					});
-				console.log(register)
+				
+				req.session.user = req.body.email;
+
+				res.redirect('/profile');
+				// console.log(request);
+				
 			})
 
     	});
 	});
 
+})
+
+router.get('/profile', (req, res) => {
+
+		
+		console.log(req.session.user + ' USEERRR')
+		if(req.session.user == null){
+			res.redirect('/')
+		} else {
+
+		ecomdb.User.findOne( {
+			where: {
+				email: req.session.user
+			}
+			// include: [ {
+			// 	model: db.Post,
+			// 	include: [ db.Comment ]
+			// } ]
+		}).then( user => {
+			// console.log(user + ' this is the  profile user')
+			req.session.user = user;
+			res.render('profile', { user: user });
+		}).catch( err => {
+			console.log(err);
+		})
+}
 })
 
 

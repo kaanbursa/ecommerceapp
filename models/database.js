@@ -44,7 +44,7 @@ ecomdb.sync({force: true}).then( done => {
 			lastname: 'Kin',
 			email: 'dragon@gmail.com',
 			password: 'werewolf',
-			username: 'DhovaKing'
+			username: 'dhovaking'
 		}),
 		ecomdb.User.create({
 			firstname: 'Bruce',
