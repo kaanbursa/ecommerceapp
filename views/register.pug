@@ -1,8 +1,15 @@
 include header
-	div(class="signupMenu")
-		h1(id="registerHead" class="myHeader") Sign Up
-		form(action="/register" method="post")
-			input(class="mdl-textfield__input menuInput" placeholder="username", name="username")
-			input(class="mdl-textfield__input menuInput" placeholder="email", name="email")
-			input(class="mdl-textfield__input menuInput" placeholder="password", name="password", type="password")
-			input(type="submit", value="Sign Up", class="menuButton")
+section.event-single
+	.container
+		.event-intro
+			img.img-responsive.event-image.scroll-reveal(src='/assets/images/registration.jpg')
+			h1.scroll-reveal Individual Registration
+				.col-sm-6 
+				h2 Details
+				input.reg-input.scroll-reveal(type='text' placeholder='Name')
+				input.reg-input.scroll-reveal(type='text' placeholder='Location')
+				input.reg-input.scroll-reveal(type='text' placeholder='Course Enrolled in')
+				input.reg-input.scroll-reveal(type='text' placeholder='Email')
+				input.reg-input.scroll-reveal(type='text' placeholder='password')
+				label.chk-label.scroll-reveal
+					input.event-chk(type="checkbox" name="accomodation" value="Acoomodation" fees="700") Accomodation (If required) -- €700

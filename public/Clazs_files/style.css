@@ -1121,7 +1121,7 @@ footer a:hover {
 .mbot30 {
     margin-bottom: 30px;
 }
-.gallary1{
+#gallary.n{
 margin-top: 100px; 
 border-top: 1px 
 solid #444; 
@@ -1130,6 +1130,11 @@ solid #444;
 padding-top: 50px; 
 padding-bottom: 50px;
 }
-.scroll-reveal1{
+.scroll-reveal.n{
 text-align: right;
+}
+h3.n{
+    text-transform: uppercase; 
+    margin-top: -30px; 
+    margin-bottom: 30px
 }

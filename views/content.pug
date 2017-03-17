@@ -1,146 +1,137 @@
-body
-	.animsition
-		.topbar
-			.container
-				.row
-					.col-sm-4
-						a.current.current.logo(href="index"): img.scroll-reveal(scr="assets/imags/logo.png")
-					.col-sm-8
-						a.next-event-top.scroll-reveal(href="index#") Your Learning School!
-		nav.navbar-fixed-top#nav-1
-			ul.sidebar-nav.nav
-				li: a(href='#intro') 00
-				li: a(href='#news') 01
-				li: a(href='#intro') 02
-				li: a(href='#intro') 03
-				li: a(href='#intro') 04
-		section#intro.intro-2(data-parallax="scroll" data-image-src="assests/images/bg.jpg")
-			.content#mouse-parallax
-				.container
-					h1.scroll-reveal A three day cultural and literary extravaganza
-					p.scroll-reveal that would strive to unfurl the splendorous talents from all arround the country
-					a.btn.btn-home.scroll-reveal(href="index#courses") Courses
-					a.btn.btn-home.scroll-reveal(href="login") Login
-					a.btn.btn-home.scroll-reveal(href="register") Register
-		section#news.events-1
-			.container.scroll-reveal
-				h2 Updates
-			.container-fluid
-				.slider.scroll-reveal
-					.slide
-						.event-wrapper
-							a(href="blog"): img.img-responsive(src="/assets/images/event1.jpg")
-							.content
-								a(href): h3 In pursuit of excellence
-								p.date 26th Jan 6:35 AM
-					.slide
-						.event-wrapper
-							a(href="blog"): img.img-responsive(src="/assets/images/event2.jpg")
-							.content
-								a(href): h3 In pursuit of excellence
-								p.date 26th Jan 6:35 AM
-					.slide
-						.event-wrapper
-							a(href="blog"): img.img-responsive(src="/assets/images/event3.jpg")
-							.content
-								a(href): h3 In pursuit of excellence
-								p.date 26th Jan 6:35 AM
-		section#about.about-1
-			.container
-				.about-intro
-					.row
-						.col-lg-5.col-md-6
-							h3.scroll-reveal About Us
-							p.subtitle.scroll-reveal About School
-							p.text.scroll-reveal The National Law University and Judicial Academy, Assam (NLUJAA), situated in the heart of Brahmaputra valley, is a premier institution for imparting multi-disciplinary legal education. The University, in keeping with its motto; In pursuit of excellence, has strived to produce world class legal scholars and practitioners since its very inception. NLUJAA boasts of an extremely erudite faculty to nurture and guide its students through its graduate, post-graduate, and doctoral programs.
-							p.quote.scroll-reveal "It is with immense pleaseure that we introduce the first instalment of School.
-							p.subtitle.text-right.scroll-reveal Coordinating team
-						.col-lg-6.col-lg-offset-1.col-md-6
-							img.img-responsive.scroll-reveal(src="/assets/images/about.jpg")
-							h3.scroll-reveal About Us
-							p.subtitle.scroll-reveal About US
-							p.text.scroll-reveal The National Law University and Judicial Academy, Assam (NLUJAA), situated in the heart of Brahmaputra valley, is a premier institution for imparting multi-disciplinary legal education. The University, in keeping with its motto; In pursuit of excellence, has strived to produce world class legal scholars and practitioners since its very inception. NLUJAA boasts of an extremely erudite faculty to nurture and guide its students through its graduate, post-graduate, and doctoral programs.
-							p.quote.scroll-reveal "It is with immense pleaseure that we introduce the first instalment of School.
-							p.subtitle.text-right.scroll-reveal Coordinating team
-		section#events
-			.container
-				h2.scroll-reveal Courses
-				.row
-					.col-md-6.col-sm-6.mbot30
-						.news-post
-							a(href="course1"): img.img-responsive.scroll0-reveal(src="assets/images/news1.jpg")
-							.content.scroll-reveal
-								h3: a(href="course1") Director's Cut
-								p.text Short Documentarry Film
-								p.date € 5000,00
-					.col-md-6.col-sm-6.mbot30
-						.news-post
-							a(href="course2"): img.img-responsive.scroll0-reveal(src="assets/images/news2.jpg")
-							.content.scroll-reveal
-								h3: a(href="course2") High Voltage
-								p.text Battel of Bands
-								p.date € 7000,00
-		.section#gallary.n
-			.container.scroll-reveal.n
-				.col-sm-8
-					.fotorama(data-nav="thumbs" data-width="100%")
-						img(src="/assets/images/event1.jpg")
-						img(src="/assets/images/event2.jpg")
-						img(src="/assets/images/child.jpg")
-						img(src="/assets/images/bg.jpg")
-					.col-sm-4
-						h2.scroll-reveal Gallary
-						h3.n A North Eastern Journey
-						a.btn.btn-home.scroll-reveal(href="#") About North East
-		.staff
-			h2.background-text.scroll-reveal(style="opacity:0.1; z-index:9999;") Team
-			.row
-				.col-sm-12
-					.staff-member
-						img.img-responsive.scroll-reveal(style="z-index: -999;" src="/assets/images/team.jpg")
-						.content.scroll-reveal
-							h3 The Driving Force
-							p.subtitle Organizing TeamADUJ 2017
+nav.navbar-fixed-top#nav-1
+	ul.sidebar-nav.nav
+		li: a(href='#intro') 00
+		li: a(href='#news') 01
+		li: a(href='#intro') 02
+		li: a(href='#intro') 03
+		li: a(href='#intro') 04
+section#intro.intro-2(data-parallax="scroll" data-image-src="assets/images/bg.jpg")
+	.content#mouse-parallax
 		.container
-			.newsletter
-				.row
-					.col-md-6
-						h3.scroll-reveal Sponsors
-					.col-md-6
-						.content.scroll-reveal
-							p If you're interested in being a sponsor for School 2017. Please leave your email. We shall get back to you.
-							form.form-inline
-								input.form-control#email(type="email" placeholder="Write your email")
-								button.btn.btn-circle: i.fa.fa-chevron-right
-		section#contact
-			.container
-				h2.scroll-reveal Contact US
-				.row
-					.col-lg-5.col-md-6
-						.contact-info.scroll-reveal
-							p.subtitle Contact US
-							p: a(href="mailto:sayhello@School.com") sayhello@School.com
-							p: a(tel="003112345675") 003112345675
-							ul.social.list-inline.list-unstyled
-								li: a.fa.fa-facebook(href="index#")
-								li: a.fa.fa-twitter(href="index#")
-								li: a.fa.fa-instagram(href="index#")
-						.contact-info.scroll-reveal
-							p.subtitle Registration Helpdesk
-							p Josè - +31 0454356565
-							p Kaan - +31 0343434334
-						.contact-info.scroll-reveal
-							p.subtitle Location
-							p Amsterdam, The Netherlands
-							p Istanbul, Turkey
-						.col-lg-7.col-md-6
-							.scroll-reveal#map 
+			h1.scroll-reveal A three day cultural and literary extravaganza
+			p.scroll-reveal that would strive to unfurl the splendorous talents from all arround the country
+			a.btn.btn-home.scroll-reveal(href="index#courses") Courses
+			a.btn.btn-home.scroll-reveal(href="login") Login
+			a.btn.btn-home.scroll-reveal(href="register") Register
+section#news.events-1
+	.container.scroll-reveal
+		h2 Updates
+	.container-fluid
+		.slider.scroll-reveal
+			.slide
+				.event-wrapper
+					a(href="blog"): img.img-responsive(src="/assets/images/event1.jpg")
+					.content
+						a(href): h3 In pursuit of excellence
+						p.date 26th Jan 6:35 AM
+			.slide
+				.event-wrapper
+					a(href="blog"): img.img-responsive(src="/assets/images/event2.jpg")
+					.content
+						a(href): h3 In pursuit of excellence
+						p.date 26th Jan 6:35 AM
+			.slide
+				.event-wrapper
+					a(href="blog"): img.img-responsive(src="/assets/images/event3.jpg")
+					.content
+						a(href): h3 In pursuit of excellence
+						p.date 26th Jan 6:35 AM
+section#about.about-1
+	.container
+		.about-intro
+			.row
+				.col-lg-5.col-md-6
+					h3.scroll-reveal About Us
+					p.subtitle.scroll-reveal About School
+					p.text.scroll-reveal The National Law University and Judicial Academy, Assam (NLUJAA), situated in the heart of Brahmaputra valley, is a premier institution for imparting multi-disciplinary legal education. The University, in keeping with its motto; In pursuit of excellence, has strived to produce world class legal scholars and practitioners since its very inception. NLUJAA boasts of an extremely erudite faculty to nurture and guide its students through its graduate, post-graduate, and doctoral programs.
+					p.quote.scroll-reveal "It is with immense pleaseure that we introduce the first instalment of School.
+					p.subtitle.text-right.scroll-reveal Coordinating team
+				.col-lg-6.col-lg-offset-1.col-md-6
+					img.img-responsive.scroll-reveal(src="/assets/images/about.jpg")
+					h3.scroll-reveal About Us
+					p.subtitle.scroll-reveal About US
+					p.text.scroll-reveal The National Law University and Judicial Academy, Assam (NLUJAA), situated in the heart of Brahmaputra valley, is a premier institution for imparting multi-disciplinary legal education. The University, in keeping with its motto; In pursuit of excellence, has strived to produce world class legal scholars and practitioners since its very inception. NLUJAA boasts of an extremely erudite faculty to nurture and guide its students through its graduate, post-graduate, and doctoral programs.
+					p.quote.scroll-reveal "It is with immense pleaseure that we introduce the first instalment of School.
+					p.subtitle.text-right.scroll-reveal Coordinating team
+section#events
+	.container
+		h2.scroll-reveal Courses
+		.row
+			.col-md-6.col-sm-6.mbot30
+				.news-post
+					a(href="course1"): img.img-responsive.scroll0-reveal(src="assets/images/news1.jpg")
+					.content.scroll-reveal
+						h3: a(href="course1") Director's Cut
+						p.text Short Documentarry Film
+						p.date € 5000,00
+			.col-md-6.col-sm-6.mbot30
+				.news-post
+					a(href="course2"): img.img-responsive.scroll0-reveal(src="assets/images/news2.jpg")
+					.content.scroll-reveal
+						h3: a(href="course2") High Voltage
+						p.text Battel of Bands
+						p.date € 7000,00
+.section#gallary.n
+	.container.scroll-reveal.n
+		.col-sm-8
+			.fotorama(data-nav="thumbs" data-width="100%")
+				img(src="/assets/images/event1.jpg")
+				img(src="/assets/images/event2.jpg")
+				img(src="/assets/images/child.jpg")
+				img(src="/assets/images/bg.jpg")
+			.col-sm-4
+				h2.scroll-reveal Gallary
+				h3.n A North Eastern Journey
+				a.btn.btn-home.scroll-reveal(href="#") About North East
+.staff
+	h2.background-text.scroll-reveal(style="opacity:0.1; z-index:9999;") Team
+	.row
+		.col-sm-12
+			.staff-member
+				img.img-responsive.scroll-reveal(style="z-index: -999;" src="/assets/images/team.jpg")
+				.content.scroll-reveal
+					h3 The Driving Force
+					p.subtitle Organizing TeamADUJ 2017
+.container
+	.newsletter
+		.row
+			.col-md-6
+				h3.scroll-reveal Sponsors
+			.col-md-6
+				.content.scroll-reveal
+					p If you're interested in being a sponsor for School 2017. Please leave your email. We shall get back to you.
+					form.form-inline
+						input.form-control#email(type="email" placeholder="Write your email")
+						button.btn.btn-circle: i.fa.fa-chevron-right
+section#contact
+	.container
+		h2.scroll-reveal Contact US
+		.row
+			.col-lg-5.col-md-6
+				.contact-info.scroll-reveal
+					p.subtitle Contact US
+					p: a(href="mailto:sayhello@School.com") sayhello@School.com
+					p: a(tel="003112345675") 003112345675
+					ul.social.list-inline.list-unstyled
+						li: a.fa.fa-facebook(href="index#")
+						li: a.fa.fa-twitter(href="index#")
+						li: a.fa.fa-instagram(href="index#")
+				.contact-info.scroll-reveal
+					p.subtitle Registration Helpdesk
+					p Josè - +31 0454356565
+					p Kaan - +31 0343434334
+				.contact-info.scroll-reveal
+					p.subtitle Location
+					p Amsterdam, The Netherlands
+					p Istanbul, Turkey
+			.col-lg-7.col-md-6
+				.scroll-reveal#map 
 
 
 
 
 
-				
+		
 
 
 
