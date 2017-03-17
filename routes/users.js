@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const ecomdb = require('../models/database');
 const bcrypt = require('bcryptjs');
+const sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
+const helper = require('sendgrid').mail;
+
 
 
 router.get('/', (req, res) => {
@@ -38,15 +41,9 @@ router.post('/login', function(req,res){
 					username: req.session.activeUser
 				}) 
 			}
-			//This is what happends if the username is found but
-			//not the password.
-			else { 
-				res.render('login', {
-					loginfail: 'Password is not correct.' 
-				}) 
-			}	
+
 		})
-	})
+
 	//If no username is found it will return nul and crash the app
 	//this catch will conpensate for that and reload the login page.
 	.catch( function(error) {
@@ -55,16 +52,25 @@ router.post('/login', function(req,res){
 				loginfail: 'Username or password not found.' 
 		}) 
 	})
+
 })
 router.get('/profile', function(req,res){
 	res.render('profile')
 })
+	})
+
 
 ////////////////////////REGISTER////////////////////////
 //The findOrCreate method will check if certain table elements
 //already exist. If they do it will not create a new user. Else
 //it will create the new user.
 router.post('/register', function (req,res) {
+
+		from_email = new helper.Email("test@example.com");
+		to_email = new helper.Email(req.body.email);
+		subject = "You have Registed to our app!!!!";
+		content = new helper.Content("text/plain", "Thank you for registering");
+		mail = new helper.Mail(from_email, subject, to_email, content);
 
 	bcrypt.genSalt(10, function(err, salt) {
     	bcrypt.hash(req.body.password, salt, function(err, hash) {
@@ -85,30 +91,19 @@ router.post('/register', function (req,res) {
 					adress: req.body.adress
 				}
 			}).then( function(register) {
+
+				var request = sg.emptyRequest({
+  					method: 'POST',
+					  path: '/v3/mail/send',
+					  body: mail.toJSON()
+					});
 				console.log(register)
 			})
 
     	});
 	});
-	//The following part worked for me in my blog app.
-	//Gonna try something simpler this time.
-	// .spread( function(user, created) {
-	// 	console.log(user.get({
-	// 		plain: true
-	// 	}))
-	// 	console.log(created)
-	// 	if (created == true) {
-	// 		res.render('/', {
-	// 		//registersucces: 'Registration Successful'
-	// 		})
-	// 	} else {
-	// 		res.render('/', {
-	// 		//registersucces: 'Registration Failed. Username and/or password already in use.'
-	// 		})
-	// 	}
-	// })
-})
 
+})
 
 
 router.get('/login', (req, res) => {
@@ -116,4 +111,5 @@ router.get('/login', (req, res) => {
 	res.render('login')
 })
 
-module.exports = router;
+
+module.exports = router 
