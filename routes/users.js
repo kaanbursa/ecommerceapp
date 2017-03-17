@@ -75,6 +75,7 @@ router.get('/profile', function(req,res){
 //it will create the new user.
 router.post('/register', function (req,res) {
 
+		// the form of the email
 		from_email = new helper.Email("test@example.com");
 		to_email = new helper.Email(req.body.email);
 		subject = "You have Registed to our app!!!!";
