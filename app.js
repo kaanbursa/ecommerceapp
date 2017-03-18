@@ -6,6 +6,7 @@ const session = require('express-session')
 
 
 const users = require( __dirname + '/routes/users')
+const courses = require( __dirname + '/routes/courses')
 //Database module
 const ecomdb = require( __dirname + '/models/database')
 
@@ -37,10 +38,13 @@ app.use(session({
 
 //Router
 app.use('/', users)
-
 app.get('/contact', (req,res) =>{
 	res.render('contact')
 })
+app.get('/courses', (req,res) =>{
+	res.render('courses')
+})
+
 
 
 app.listen(3000, f => {
