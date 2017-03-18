@@ -1,15 +1,45 @@
 include header
+.animsition
+.topbar
+	.container
+		.row
+			.col-sm-4
+				a.current.current.logo(href="index"): img.scroll-reveal(scr="/assets/images/logo.png")
+			.col-sm-8
+				a.next-event-top.scroll-reveal(href="index#") Your Learning School!
 section.event-single
 	.container
 		.event-intro
 			img.img-responsive.event-image.scroll-reveal(src='/assets/images/registration.jpg')
 			h1.scroll-reveal Individual Registration
+			form
 				.col-sm-6 
-				h2 Details
-				input.reg-input.scroll-reveal(type='text' placeholder='Name')
-				input.reg-input.scroll-reveal(type='text' placeholder='Location')
-				input.reg-input.scroll-reveal(type='text' placeholder='Course Enrolled in')
-				input.reg-input.scroll-reveal(type='text' placeholder='Email')
-				input.reg-input.scroll-reveal(type='text' placeholder='password')
-				label.chk-label.scroll-reveal
-					input.event-chk(type="checkbox" name="accomodation" value="Acoomodation" fees="700") Accomodation (If required) -- €700
+					h2 Details
+					input.reg-input.scroll-reveal(type='text' placeholder='Name')
+					input.reg-input.scroll-reveal(type='text' placeholder='Location')
+					input.reg-input.scroll-reveal(type='text' placeholder='Course Enrolled in')
+					input.reg-input.scroll-reveal(type='text' placeholder='Email')
+					input.reg-input.scroll-reveal(type='text' placeholder='password')
+					label.chk-label.scroll-reveal
+						input(type='checkbox' name='accomodation' fee='700' class='event-chk' value= 'Accomodation')
+						span Accomodation (If required) -- €700
+				.col-sm-6
+					.col-sm-12
+						h2 Events
+					.events-chklist
+						p Select all the events you want to participate for, from the list below. Registration fees will be calculated below.
+						label.chk-label.scroll-reveal
+							input.event-chk(type='checkbox' name='vehicle1' fee='100')
+							span creative writing - €100
+						br
+						label.chk-label.scroll-reveal
+							input.event-chk(type='checkbox' name='vehicle2' fee='50')
+							span Extempore Speech - €50
+				.col-sm-8.scroll-revealamount Total amount to be paid: &nbsp;&nbsp;&nbsp;
+					span#register-amt € 0
+				.col-sm-4.scroll-revealA
+					a.btn.btn-home.scroll-reveal.btn-reg(href='') Next
+					br
+					p#reg Registration for school - € 100 to be paid on registration
+include footer
+

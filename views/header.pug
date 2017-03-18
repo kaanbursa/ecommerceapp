@@ -17,7 +17,15 @@ body
 		.container
 			.row
 				.col-sm-4
-					a.current.current.logo(href="index"): img.scroll-reveal(scr="/assets/images/logo.png")
+					a.current.current.logo(href="/"): img.scroll-reveal(src="/assets/images/logo.png")
 				.col-sm-8
-					a.next-event-top.scroll-reveal(href="index#") Your Learning School!
+					a.next-event-top.scroll-reveal(href="/") Your Learning School!
+nav.navbar-fixed-top#nav-1
+	ul.sidebar-nav.nav
+		li: a(href='/') Home
+		li: a(href='courses') Courses
+		li: a(href='login') Login
+		li: a(href='register') Register
+		li: a(href='contact') Contact
+
 

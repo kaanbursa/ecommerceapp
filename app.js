@@ -38,6 +38,10 @@ app.use(session({
 //Router
 app.use('/', users)
 
+app.get('/contact', (req,res) =>{
+	res.render('contact')
+})
+
 
 app.listen(3000, f => {
 	console.log('Server started at 3000');

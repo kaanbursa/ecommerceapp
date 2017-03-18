@@ -1,2 +1,25 @@
 include header
-	h1 LOGIN 
+.animsition
+.topbar
+	.container
+		.row
+			.col-sm-4
+				a.current.current.logo(href="index"): img.scroll-reveal(scr="/assets/images/logo.png")
+			.col-sm-8
+				a.next-event-top.scroll-reveal(href="index#") Your Learning School!
+section.event-single
+	.container
+		.event-intro
+			img.img-responsive.event-image.scroll-reveal(src='/assets/images/registration.jpg')
+			h1.scroll-reveal Start Again
+			form
+				.col-sm-8 
+					h2 Login
+					input.reg-input.scroll-reveal(type='text' placeholder='Email')
+					input.reg-input.scroll-reveal(type='text' placeholder='password')
+					label.chk-label.scroll-reveal
+						input(type='checkbox' name='accomodation' fee='700' class='event-chk' value= 'remember')
+						span Keep you sign-in?
+						br
+				.col-sm-6
+					a.btn.btn-home.scroll-reveal.btn-reg(href='') Login
