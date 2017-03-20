@@ -4,6 +4,9 @@ const ecomdb = require('../models/database');
 const bcrypt = require('bcryptjs');
 const sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
 const helper = require('sendgrid').mail;
+const sequelize= require('sequelize')
+const session = require('express-session')
+
 
 
 
@@ -18,6 +21,12 @@ router.get('/register', (req, res) => {
 })
 
 
+router.get('/login', (req, res) => {
+	
+	res.render('login')
+})
+
+
 //This login works with sessions. I don't know if it will
 //conflict with passportjs.
 router.post('/login', function(req,res){
@@ -27,6 +36,7 @@ router.post('/login', function(req,res){
 	ecomdb.User.findOne( {
 		where: {
 			username: lwrCase
+			// username : req.body.username
 		}
 	}).then( user => {
 		// if it does not find the user it will show the err
@@ -145,10 +155,7 @@ router.get('/profile', (req, res) => {
 })
 
 
-router.get('/login', (req, res) => {
-	
-	res.render('login')
-})
+
 
 
 module.exports = router 

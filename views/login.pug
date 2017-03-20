@@ -12,7 +12,7 @@ section.event-single
 		.event-intro
 			img.img-responsive.event-image.scroll-reveal(src='/assets/images/registration.jpg')
 			h1.scroll-reveal Start Again
-			form
+			form(action='login' method='post')
 				.col-sm-8 
 					h2 Login
 					form(action="/login" method="post")
@@ -23,4 +23,4 @@ section.event-single
 							span Keep you sign-in?
 							br
 				.col-sm-6
-					a.btn.btn-home.scroll-reveal.btn-reg(href='') Login
+					a.btn.btn-home.scroll-reveal.btn-reg(href='profile') Login
