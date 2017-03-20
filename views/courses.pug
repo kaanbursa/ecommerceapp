@@ -3,25 +3,17 @@ include header
 	h2.scroll-reveal Courses
 	.row
 		.col-md-6.col-sm-6.mbot30
-			.news-post
-				a(href="course1"): img.img-responsive.scroll0-reveal(src="assets/images/news1.jpg")
-				.content.scroll-reveal
-					h3: a(href="course1") Director's Cut
-					p.text Short Documentarry Film
-					p.date € 5000,00
-					br
-					br
-				.col-sm-6
-					a.btn.btn-home.scroll-reveal.btn-reg(href='profile') Enroll
-		.col-md-6.col-sm-6.mbot30
-			.news-post
-				a(href="course2"): img.img-responsive.scroll0-reveal(src="assets/images/news2.jpg")
-				.content.scroll-reveal
-					h3: a(href="course2") High Voltage
-					p.text Battel of Bands
-					p.date € 7000,00
-					br
-					br
-				.col-sm-6
-					a.btn.btn-home.scroll-reveal.btn-reg(href='profile') Enroll
+			each course in courses
+				.news-post
+					a(href="course1"): img.img-responsive.scroll0-reveal(src="assets/images/news1.jpg")
+					.content.scroll-reveal
+						h3: a(href="course1") #{course.name}
+						p.text Short Documentarry Film
+						p.date € 5000,00
+						br
+						br
+					.col-sm-6
+						form(action="/enroll" method="post")
+							input(name="courseId", value=course.id hidden)
+							a.btn.btn-home.scroll-reveal.btn-reg(href='profile') Enroll
 include footer

@@ -35,6 +35,7 @@ ecomdb.User.hasMany(ecomdb.Order)
 ecomdb.Order.hasMany(ecomdb.Product)
 
 
+
 //Populate the tables with users, products and orders 
 ecomdb.sync({force: true}).then( done => {
 	return Promise.all([

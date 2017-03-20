@@ -38,12 +38,12 @@ app.use(session({
 
 //Router
 app.use('/', users)
+app.use('/', courses)
+
 app.get('/contact', (req,res) =>{
 	res.render('contact')
 })
-app.get('/courses', (req,res) =>{
-	res.render('courses')
-})
+
 
 
 

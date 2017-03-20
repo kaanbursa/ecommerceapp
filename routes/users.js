@@ -137,11 +137,11 @@ router.get('/profile', (req, res) => {
 		ecomdb.User.findOne( {
 			where: {
 				username: req.session.user
-			}
-			// include: [ {
-			// 	model: db.Post,
-			// 	include: [ db.Comment ]
-			// } ]
+			},
+			include: [ {
+				model: ecomdb.Order,
+				include: [ ecomdb.Product ]
+			} ]
 		}).then( user => {
 			// console.log(user + ' this is the  profile user')
 			req.session.user = user;
