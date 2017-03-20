@@ -6,4 +6,11 @@ include header
 				p= order.product
 		else
 			p we dont have any orders
+hr
+	h2 Enrolled courses.
+	hr
+	each course in enrolledCourses
+		h3= 'Title: ' + course.name
+		h4= 'Subject: ' + course.subject 
+		hr
 

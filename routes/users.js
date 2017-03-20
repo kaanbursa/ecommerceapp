@@ -37,23 +37,26 @@ router.post('/login', function(req,res){
 		where: {
 			username: lwrCase
 			// username : req.body.username
-		}
+		},
+		include: [{
+			model: ecomdb.Order
+		}] 	
 	}).then( user => {
 		// if it does not find the user it will show the err
 		if(user != null){
 			bcrypt.compare(req.body.password, user.password, function(err, res) {
 
-				if ( lwrCase == user.password ) { 
-
+				if ( lwrCase == user.password ) {
 					//Pass form username into req.session.activeUser
 					req.session.user = user.username
 					//This will then render the home page after 
 					//the username and the password are confirmed. 
-					res.redirect('profile') 
+					res.redirect('profile', {
+						enrolledCourses: user
+					}) 
 				} else {
 					throw err
 				}
-
 			})
 	} else {
 		res.send('something went wrong')
