@@ -129,7 +129,7 @@ router.post('/register', function (req,res) {
 router.get('/profile', (req, res) => {
 
 		
-		console.log(req.session.user + ' USEERRR')
+		console.log(req.session.userid + ' USEERRR')
 		if(req.session.user == null){
 			res.redirect('/')
 		} else {

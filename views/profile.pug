@@ -1,9 +1,9 @@
 include header
-	h1 #{user.username}
-	
-		if user.orders.length > 0
+.container
+	h3#profile Hello #{user.username}
+		if user.order > 0
+			console.log('this is the order' + user.order)
 			each order in user.orders
-				p= order.product
-		else
-			p we dont have any orders
-
+				p= orders.products.id
+		else 
+		p You dont have any orders
