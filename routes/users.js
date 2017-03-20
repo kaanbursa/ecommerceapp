@@ -36,7 +36,7 @@ router.post('/login', function(req,res){
 				if ( lwrCase == user.password ) { 
 
 					//Pass form username into req.session.activeUser
-					req.session.user = user.username
+					req.session.user = user.email
 					//This will then render the home page after 
 					//the username and the password are confirmed. 
 					res.redirect('profile') 
@@ -113,6 +113,8 @@ router.post('/register', function (req,res) {
 				res.redirect('/profile');
 				// console.log(request);
 				
+			}).catch( err => {
+				console.log(err);
 			})
 
     	});

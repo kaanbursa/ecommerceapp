@@ -1,10 +1,17 @@
 include header
+.animsition
+.topbar
+	.container
+		.row
+			.col-sm-4
+				a.current.current.logo(href="index"): img.scroll-reveal(scr="/assets/images/logo.png")
+			.col-sm-8
+				a.next-event-top.scroll-reveal(href="index#") Your Learning School!
 section.event-single
 	.container
 		.event-intro
 			img.img-responsive.event-image.scroll-reveal(src='/assets/images/registration.jpg')
 			h1.scroll-reveal Individual Registration
-				.col-sm-6 
 				h2 Details
 				form(action="/register" method="post")
 					input.reg-input.scroll-reveal(type='text' placeholder='Name')
@@ -12,5 +19,6 @@ section.event-single
 					input.reg-input.scroll-reveal(type='text' placeholder='Course Enrolled in')
 					input.reg-input.scroll-reveal(type='text' placeholder='Email')
 					input.reg-input.scroll-reveal(type='text' placeholder='password')
-				//- label.chk-label.scroll-reveal
-				//- input.event-chk(type="checkbox" name="accomodation" value="Acoomodation" fees="700") Accomodation (If required) -- €700
+					input.reg-input.scroll-reveal(type="button" value="Submit")
+include footer
+
