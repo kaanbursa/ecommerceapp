@@ -1,3 +1,9 @@
 include header
 	h1 #{user.username}
+	
+		if user.orders.length > 0
+			each order in user.orders
+				p= order.product
+		else
+			p we dont have any orders
 

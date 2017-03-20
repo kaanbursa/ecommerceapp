@@ -90,20 +90,19 @@ router.post('/register', function (req,res) {
     	bcrypt.hash(req.body.password, salt, function(err, hash) {
         // Store hash in your password DB. 
   
-			ecomdb.User.findOrCreate({
+			ecomdb.User.create({
 				//It checks if the entered username, email and password are available.
 				//If they are available it will create all the table elements mentioned
 				//here below.  
-				where: {
 					username: req.body.username,
 					password: hash,
 					email: req.body.email
-				},
-				defaults: {
-					firstname: req.body.firstname,
-					lastname: req.body.lastname,
-					adress: req.body.adress
-				}
+				
+				// defaults: {
+				// 	firstname: req.body.firstname,
+				// 	lastname: req.body.lastname,
+				// 	adress: req.body.adress
+				// }
 			}).then( user => {
 
 				var request = sg.emptyRequest({
@@ -112,7 +111,8 @@ router.post('/register', function (req,res) {
 					  body: mail.toJSON()
 					});
 				
-				req.session.user = req.body.username;
+				req.session.user = user;
+				console.log(user)
 
 				res.redirect('/profile');
 				// console.log(request);
@@ -136,14 +136,14 @@ router.get('/profile', (req, res) => {
 
 		ecomdb.User.findOne( {
 			where: {
-				username: req.session.user
+				username: req.session.user.username
 			},
 			include: [ {
 				model: ecomdb.Order,
 				include: [ ecomdb.Product ]
 			} ]
-		}).then( user => {
-			// console.log(user + ' this is the  profile user')
+		} ).then( user => {
+			 console.log(user.orders.product + ' this is the  profile user')
 			req.session.user = user;
 			res.render('profile', { user: user });
 		}).catch( err => {

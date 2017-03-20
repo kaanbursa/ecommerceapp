@@ -17,7 +17,7 @@ courses.post('/enroll', (req, res) => {
 		res.redirect('login')
 	} else{ 
 		ecomdb.Order.create({
-			userId: req.session.id,
+			userId: req.session.user.id,
 			product: req.body.courseId,
 			payment: true
 		}).then( order => {
