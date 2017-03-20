@@ -36,7 +36,7 @@ router.post('/login', function(req,res){
 				if ( lwrCase == user.password ) { 
 
 					//Pass form username into req.session.activeUser
-					req.session.user = user.email
+					req.session.user = user.username
 					//This will then render the home page after 
 					//the username and the password are confirmed. 
 					res.redirect('profile') 
@@ -62,10 +62,6 @@ router.post('/login', function(req,res){
 	
 });
 
-router.get('/profile', function(req,res){
-	res.render('profile')
-})
-
 
 
 
@@ -74,7 +70,7 @@ router.get('/profile', function(req,res){
 //already exist. If they do it will not create a new user. Else
 //it will create the new user.
 router.post('/register', function (req,res) {
-
+	console.log('register clicked')
 		// the form of the email
 		from_email = new helper.Email("test@example.com");
 		to_email = new helper.Email(req.body.email);
@@ -108,7 +104,7 @@ router.post('/register', function (req,res) {
 					  body: mail.toJSON()
 					});
 				
-				req.session.user = req.body.email;
+				req.session.user = req.body.username;
 
 				res.redirect('/profile');
 				// console.log(request);
@@ -132,7 +128,7 @@ router.get('/profile', (req, res) => {
 
 		ecomdb.User.findOne( {
 			where: {
-				email: req.session.user
+				username: req.session.user
 			}
 			// include: [ {
 			// 	model: db.Post,
