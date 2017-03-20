@@ -4,6 +4,9 @@ const ecomdb = require('../models/database');
 const bcrypt = require('bcryptjs');
 const sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
 const helper = require('sendgrid').mail;
+const sequelize= require('sequelize')
+const session = require('express-session')
+
 
 
 
@@ -27,6 +30,7 @@ router.post('/login', function(req,res){
 	ecomdb.User.findOne( {
 		where: {
 			username: lwrCase
+			// username : req.body.username
 		}
 	}).then( user => {
 		// if it does not find the user it will show the err
@@ -36,7 +40,7 @@ router.post('/login', function(req,res){
 				if ( lwrCase == user.password ) { 
 
 					//Pass form username into req.session.activeUser
-					req.session.user = user.username
+					req.session.user = user.email
 					//This will then render the home page after 
 					//the username and the password are confirmed. 
 					res.redirect('profile') 
