@@ -26,7 +26,8 @@ ecomdb.Product = ecomdb.define( 'product', {
 
 //The orders table model.
 ecomdb.Order = ecomdb.define( 'order', {
-		product: sequelize.STRING
+		product: sequelize.STRING,
+		payment: sequelize.BOOLEAN
 })
 
 //Table relations.
@@ -69,6 +70,7 @@ ecomdb.sync({force: true}).then( done => {
 		//Demo data belonging to the first user.
 		users[0].createOrder({
 			product: "Javascript: quickstart",
+			payment: false
 		})
 	])
 })
