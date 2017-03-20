@@ -42,5 +42,13 @@ section.event-single
 					a.btn.btn-home.scroll-reveal.btn-reg(href='') Next
 					br
 					p#reg Registration for school - € 100 to be paid on registration
+				h2 Details
+				form(action="/register" method="post")
+					input.reg-input.scroll-reveal(type='text' placeholder='Name')
+					input.reg-input.scroll-reveal(type='text' placeholder='Location')
+					input.reg-input.scroll-reveal(type='text' placeholder='Course Enrolled in')
+					input.reg-input.scroll-reveal(type='text' placeholder='Email')
+					input.reg-input.scroll-reveal(type='text' placeholder='password')
+					input.reg-input.scroll-reveal(type="button" value="Submit")
 include footer
 

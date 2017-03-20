@@ -117,6 +117,8 @@ router.post('/register', function (req,res) {
 				res.redirect('/profile');
 				// console.log(request);
 				
+			}).catch( err => {
+				console.log(err);
 			})
 
     	});
