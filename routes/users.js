@@ -73,8 +73,6 @@ router.post('/login', function(req,res){
 });
 
 
-
-
 ////////////////////////REGISTER////////////////////////
 //The findOrCreate method will check if certain table elements
 //already exist. If they do it will not create a new user. Else
